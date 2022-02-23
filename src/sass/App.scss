@@ -1,0 +1,58 @@
+@import "variables&functions";
+@import "utilities";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  background-color: $primaryColor;
+}
+
+
+
+#login { 
+    height: 100vh;
+    width: 100%;
+  @include flexcenter(column);
+  color: $secondaryColor;
+  font-size: 1vw;
+
+  
+  div{ 
+      width: 30%;
+      text-align: center; 
+      margin-bottom: 10vw;
+  }
+
+  h1{
+        font-size: 3.5em;
+        padding-bottom: 0.8em
+  }
+
+  form {
+      @include flexcenter(column);
+
+    input {
+      @extend %login;
+    }
+
+    button{
+        @extend %btn;
+    }
+
+   
+
+    
+  } 
+  img{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    
+    }
+}

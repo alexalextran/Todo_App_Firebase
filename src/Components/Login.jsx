@@ -1,8 +1,9 @@
 import React from "react";
+import waves from "../assets/wave.svg"
 
 const Login = () => {
   return (
-    <section>
+    <section id="login">
       <div>
         <h1>Sign In</h1>
         <p>Sign In To Start Creating TODO'S</p>
@@ -17,6 +18,8 @@ const Login = () => {
           <button>Login</button>
         </form>
       </div>
+
+      <img src={waves}></img>
     </section>
   );
 };

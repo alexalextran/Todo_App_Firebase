@@ -1,0 +1,27 @@
+%login{
+   background-color: $secondaryColor;
+   margin: 1em 0px;
+   width: 80%;
+   height: 3vw;
+   padding: 1em 2em;
+   border-radius: 10px;
+   font-size: 1vw;
+   color: $white;
+   outline: none;
+   border: none;
+  
+
+   &::placeholder{
+       color: white;
+       text-align: left ;
+       font-size: 1;
+       
+   }
+}
+
+
+%btn{
+    background-color: $tertiaryColor;
+    @extend %login;
+    text-align: center;
+}
