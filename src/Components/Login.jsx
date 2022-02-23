@@ -13,6 +13,12 @@ const Login = () => {
 
           <input placeholder="Password"></input>
 
+          <div> 
+          <label htmlFor="rm"> Remember Me</label>
+          <input type="checkbox" id="rm" name="rm"/>
+          </div>
+         
+
           <a>Dont have an account? Click Here!</a>
 
           <button>Login</button>

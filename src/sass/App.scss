@@ -13,46 +13,44 @@ html {
   background-color: $primaryColor;
 }
 
-
-
-#login { 
-    height: 100vh;
-    width: 100%;
+#login {
+  height: 100vh;
+  width: 100%;
   @include flexcenter(column);
   color: $secondaryColor;
   font-size: 1vw;
 
-  
-  div{ 
-      width: 30%;
-      text-align: center; 
-      margin-bottom: 10vw;
+  & > div {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 10vw;
   }
 
-  h1{
-        font-size: 3.5em;
-        padding-bottom: 0.8em
+  h1 {
+    font-size: 3.5em;
+    padding-bottom: 0.8em;
   }
 
   form {
-      @include flexcenter(column);
+    @include flexcenter(column);
 
-    input {
+    & > input {
       @extend %login;
     }
 
-    button{
-        @extend %btn;
+    div{
+        @include flexcustom(space-between, center, row);
+        width: clamp(50px, 27%, 300px); 
+        margin-bottom: 1em
     }
 
-   
-
-    
-  } 
-  img{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    
+    button {
+      @extend %btn;
     }
+  }
+  img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
