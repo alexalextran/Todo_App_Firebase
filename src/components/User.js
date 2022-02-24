@@ -1,7 +1,21 @@
 import React from 'react'
-import logo from "../images/logo.jpg"
+import logo from "../images/logoalextran.png"
+import { getAuth, signOut } from "firebase/auth"
+
+
+
+
+
+  
 
 function User(){
+
+
+    const Logout = () =>{
+        console.log("signingout")
+        const auth = getAuth();
+        signOut(auth)
+    }
 
     return (
         <div className='User'>
@@ -9,8 +23,8 @@ function User(){
                 <img src={logo} alt="logo" />
             </div>
             <div className='info'>
-                <p>Code Explained</p>
-                <a href="#">Logout!</a>
+                <p>Alex Tran's TODO</p>
+                <a onClick={Logout} href="#">Logout!</a>
             </div>
         </div>
     )

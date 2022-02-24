@@ -17,7 +17,15 @@ function Sidebar({ children }){
     
     // HANDLE CLICK
     const handleClick = e => {
-        if( e.target === sidebarRef.current || sidebarRef.current.contains(e.target)){
+      
+
+        if(sidebarRef.current == null)
+        {
+            console.log("null")
+            return
+        }
+        else if
+        ( e.target === sidebarRef.current || sidebarRef.current.contains(e.target)){
             setSelectedTodo(false)
         }
     }

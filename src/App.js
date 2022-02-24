@@ -1,27 +1,42 @@
 import './App.css';
-import Sidebar from './components/Sidebar'
-import Main from './components/Main'
-import User from './components/User'
-import AddNewTodo from './components/AddNewTodo'
-import Calendar from './components/Calendar'
-import Projects from './components/Projects'
-import Todos from './components/Todos'
-import EditTodo from './components/EditTodo'
+import Mainpage from './components/MainPage';
+import { useAuthState } from "react-firebase-hooks/auth"
+import React, {useContext, useState} from 'react'
+import firebase, { auth } from './firebase'
+import { TodoContext } from './context'
 
 
-function App() {
+
+
+
+
+const App =  () => {
+
+  const { UID, setUID } = useContext(TodoContext)
+
+  const LogIn = () => {
+   
+ (auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()))
+ .then(  )
+
+    
+   
+  
+}
+ const [user] = useAuthState(auth)
+ 
   return (
+    
     <div className="App">
-      <Sidebar>
-        <User />
-        <AddNewTodo />
-        <Calendar />
-        <Projects />
-      </Sidebar>
-      <Main>
-        <Todos />
-        <EditTodo />
-      </Main>
+{
+  user
+      ?
+     <Mainpage />
+     : 
+  <section>
+  <button onClick={LogIn}>Sign In</button>
+</section>
+}
     </div>
   );
 }

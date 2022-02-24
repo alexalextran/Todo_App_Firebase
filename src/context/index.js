@@ -13,10 +13,15 @@ function TodoContextProvider({children}){
     const projectsWithStats = useProjectsWithStats(todos, projects)
     const filteredTodos = useFilterTodos(todos, selectedProject)
 
+    const [UID, setUID] = useState()
+   
+
     return (
         <TodoContext.Provider
             value={
-                {
+                {   
+                    UID,
+                    setUID,
                     defaultProject,
                     selectedProject,
                     setSelectedProject,
