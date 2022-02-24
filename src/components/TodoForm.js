@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Bell, CalendarDay, Clock, Palette, X } from 'react-bootstrap-icons'
 import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
@@ -10,6 +9,7 @@ function TodoForm({
     text, setText,
     day, setDay,
     time, setTime,
+    todoProject, setTodoProject,
     projects,
     showButtons = false,
     setShowModal = false
@@ -62,11 +62,20 @@ function TodoForm({
                     </div>
                     <div className="projects">
                         {
+                            projects.length > 0 ?
                             projects.map( project => 
-                                <div className="project" key={project.id}>
+                                <div
+                                    className={`project ${todoProject === project.name ? "active" : ""}`}
+                                    onClick={() => setTodoProject(project.name)}
+                                    key={project.id}
+                                >
                                     {project.name}
                                 </div>    
                             )
+                            :
+                            <div style={{color:'#ff0000'}}>
+                                Please add a project before proceeding
+                            </div>
                         }
                     </div>
                 </div>

@@ -1,52 +1,52 @@
-import React, {useState} from 'react'
-import { CaretUp, Palette, PencilFill } from 'react-bootstrap-icons'
-import AddNewProject from './AddNewProject'
-import Project from './Project'
+import React, {useContext, useState} from 'react'
+import { Pencil, XCircle } from 'react-bootstrap-icons'
+import Modal from './Modal'
+import RenameProject from './RenameProject'
+import { TodoContext } from '../context'
 
-function Projects(){
-    const [showMenu, setShowMenu] = useState(true);
-    const [edit, setEdit] = useState(false)
-    const pencilColor = edit ? "#1EC94C" : "#000000"
+function Project({project, edit}){
+    // CONTEXT
+    const { setSelectedProject } = useContext(TodoContext)
 
-    const projects = [
-        { id : 1, name : "personal", numOfTodos : 0 },
-        { id : 2, name : "work", numOfTodos : 1 },
-        { id : 3, name : "other", numOfTodos : 2 }
-    ]
+    // STATE
+    const [showModal, setShowModal] = useState(false)
 
     return (
-        <div className='Projects'>
-            <div className="header">
-                <div className="title">
-                    <Palette size="18" />
-                    <p>Projects</p>
-                </div>
-                <div className="btns">
-                    {
-                        showMenu && projects.length > 0 &&
-                        <span className='edit' onClick={ () => setEdit(edit => !edit)}>
-                            <PencilFill size="15" color={pencilColor}/>
-                        </span>
-                    }
-                    <AddNewProject />
-                    <span className='arrow'>
-                        <CaretUp size="20" />
-                    </span>
-                </div>
+        <div className='Project'>
+            <div
+                className="name"
+                onClick={ () => setSelectedProject(project.name)}
+            >
+                {project.name}
             </div>
-            <div className="items">
+            <div className="btns">
                 {
-                    projects.map( project => 
-                        <Project
-                            project={project}
-                            key={project.id}
-                            edit={edit}
-                        />
-                    )
+                    edit ?
+                    <div className="edit-delete">
+                        <span
+                            className="edit"
+                            onClick={ () => setShowModal(true)}
+                        >
+                            <Pencil size="13" />
+                        </span>
+                        <span className="delete">
+                            <XCircle size="13" />
+                        </span>
+                    </div>
+                    :
+                    project.numOfTodos === 0 ?
+                    ""
+                    :
+                    <div className="total-todos">
+                        {project.numOfTodos}
+                    </div>
                 }
             </div>
+            <Modal showModal={showModal} setShowModal={setShowModal}>
+                <RenameProject project={project} setShowModal={setShowModal}/>
+            </Modal>
         </div>
     )
 }
 
-export default Projects
+export default Project
