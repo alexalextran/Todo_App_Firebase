@@ -6,7 +6,7 @@ import firebase from '../firebase'
 
 function EditTodo(){
     // CONETXT
-    const { selectedTodo : todo, projects } = useContext(TodoContext)
+    const { selectedTodo : todo, projects, UID } = useContext(TodoContext)
 
     // STATE
     const [text, setText] = useState('')
@@ -27,7 +27,7 @@ function EditTodo(){
         if(todo){
             firebase
                 .firestore()
-                .collection('todos')
+                .collection(`users/${UID}/todos`)
                 .doc(todo.id)
                 .update({
                     text,
@@ -42,6 +42,11 @@ function EditTodo(){
     function handleSubmit(e){
 
     }
+
+    
+    var filteredProjects = projects.filter(proj => proj.userID == UID);
+
+
     return (
         <div>
             {
@@ -61,7 +66,7 @@ function EditTodo(){
                             setTime={setTime}
                             todoProject={todoProject}
                             setTodoProject={setTodoProject}
-                            projects={projects}
+                            projects={filteredProjects}
                         />
                     </div>
                 </div>

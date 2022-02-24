@@ -5,6 +5,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import firebase, { auth } from './firebase'
 import { TodoContext } from './context'
 import "firebase/auth";
+import User from './components/User';
 
 
 
@@ -14,7 +15,7 @@ import "firebase/auth";
 
 const App =  () => {
 
-  const { UID, setUID } = useContext(TodoContext)
+  const { UID, setUID  } = useContext(TodoContext)
 
   const LogIn = () => {
    
@@ -24,7 +25,7 @@ const App =  () => {
 }) 
 }
  const [user] = useAuthState(auth)
- 
+
   return (
     
     <div className="App">

@@ -1,19 +1,21 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Modal from './Modal'
 import ProjectForm from './ProjectForm'
 import { Plus } from 'react-bootstrap-icons'
 import firebase from '../firebase'
+import { TodoContext } from '../context'
 
 function AddNewProject(){
     // STATE
     const [showModal, setShowModal] = useState(false)
     const [projectName, setProjectName] = useState('')
+    const { UID } = useContext(TodoContext)
 
     function handleSubmit(e){
         e.preventDefault()
 
-        if( projectName ){
-            const projectsRef = firebase.firestore().collection('projects')
+        if( projectName, UID ){
+            const projectsRef = firebase.firestore().collection(`projects`)
 
             projectsRef
                 .where('name', '==', projectName)
@@ -23,18 +25,25 @@ function AddNewProject(){
                         projectsRef
                             .add(
                                 {
-                                    name : projectName
+                                    name : projectName,
+                                    UserId: UID
                                 }
                             )
-                    }else{
-                        alert('Project already exists!')
                     }
                 })
                 
             setShowModal(false)
-            setProjectName('')
+            setProjectName('') 
+         
+            
+    
+
+     
+      
         }
     }
+
+    
 
     return (
         <div className='AddNewProject'>

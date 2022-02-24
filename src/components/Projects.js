@@ -9,10 +9,11 @@ function Projects(){
     const [showMenu, setShowMenu] = useState(true);
     const [edit, setEdit] = useState(false)
     const pencilColor = edit ? "#1EC94C" : "#000000"
+    
 
     // CONTEXT
-    const { projects } = useContext(TodoContext)
-
+    const { projects, UID } = useContext(TodoContext)
+    
     // ANIMATION
     const spin = useSpring({
         transform : showMenu ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -50,7 +51,8 @@ function Projects(){
             </div>
             <animated.div style={menuAnimation} className="items">
                 {
-                    projects.map( project => 
+
+                    projects.filter(proj => proj.userID == UID).map( project => 
                         <Project
                             project={project}
                             key={project.id}

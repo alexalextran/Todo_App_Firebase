@@ -7,9 +7,11 @@ import firebase from '../firebase'
 import moment from 'moment'
 import randomcolor from 'randomcolor'
 
+
 function AddNewTodo(){
     // CONTEXT
-    const { projects, selectedProject } = useContext(TodoContext)
+    const { projects, selectedProject, UID } = useContext(TodoContext)
+   
     
     // STATE
     const [showModal, setShowModal] = useState(false)
@@ -24,7 +26,7 @@ function AddNewTodo(){
         if( text && !calendarItems.includes(todoProject)){
             firebase
                 .firestore()
-                .collection('todos')
+                .collection(`users/${UID}/todos`)
                 .add(
                     {
                         text : text,
@@ -33,7 +35,7 @@ function AddNewTodo(){
                         time : moment(time).format('hh:mm A'),
                         checked : false,
                         color : randomcolor({luminosity : 'dark'}),
-                        projectName : todoProject
+                        projectName : todoProject,
                     }
                 )
 
@@ -47,6 +49,10 @@ function AddNewTodo(){
     useEffect( () => {
         setTodoProject(selectedProject)
     }, [selectedProject])
+
+   
+    var filteredProjects = projects.filter(proj => proj.userID == UID);
+
 
     return (
         <div className='AddNewTodo'>
@@ -67,7 +73,7 @@ function AddNewTodo(){
                     setTime={setTime}
                     todoProject={todoProject}
                     setTodoProject={setTodoProject}
-                    projects={projects}
+                    projects={filteredProjects}
                     showButtons={true}
                     setShowModal={setShowModal}
                 />

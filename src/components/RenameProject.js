@@ -8,12 +8,12 @@ function RenameProject({project, setShowModal}){
     const [newProjectName, setNewProjectName] = useState(project.name)
 
     // CONTEXT
-    const { selectedProject, setSelectedProject } = useContext(TodoContext)
+    const { selectedProject, setSelectedProject, UID } = useContext(TodoContext)
 
     // rename Project
     const renameProject = (project, newProjectName) => {
         const projectsRef = firebase.firestore().collection('projects')
-        const todosRef = firebase.firestore().collection('todos')
+        const todosRef = firebase.firestore().collection(`users/${UID}/todos`)
 
         const { name : oldProjectName } = project
 

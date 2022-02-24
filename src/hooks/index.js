@@ -6,13 +6,14 @@ import firebase from '../firebase'
 
 
 
-export function useTodos(){
+export function useTodos(UID){
     const [todos, setTodos] = useState([])
 
-    useEffect(() => {
+    useEffect(() => {  
+     
         let unsubscribe = firebase
         .firestore()
-        .collection('todos')
+        .collection(`users/${UID}/todos`)
         .onSnapshot( snapshot => {
             const data = snapshot.docs.map( doc => {
                 return {
@@ -23,13 +24,17 @@ export function useTodos(){
             setTodos(data)
         })
 
+        
+      
+          
+
         return () => unsubscribe()
-    }, [])
+    }, [UID])
 
     return todos
 }
 
-export function useFilterTodos(todos, selectedProject){
+export function useFilterTodos(todos, selectedProject, UID){
     const [filteredTodos, setFilteredTodos] = useState([])
 
     useEffect( () => {
@@ -53,6 +58,8 @@ export function useFilterTodos(todos, selectedProject){
             data = todos.filter(todo => todo.projectName === selectedProject)
         }
 
+        console.log(UID)
+
         setFilteredTodos(data)
     }, [todos, selectedProject])
 
@@ -69,6 +76,7 @@ export function useProjects(){
         .onSnapshot( snapshot => {
             const data = snapshot.docs.map( doc => {
                 return {
+                    userID: doc.data().UserId,
                     id : doc.id,
                     name : doc.data().name,
                 }
