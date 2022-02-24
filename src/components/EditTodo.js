@@ -5,30 +5,30 @@ import moment from 'moment'
 import firebase from '../firebase'
 
 function EditTodo(){
+    // CONETXT
+    const { selectedTodo : todo, projects } = useContext(TodoContext)
+
     // STATE
     const [text, setText] = useState('')
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
     const [todoProject, setTodoProject] = useState('')
 
-    // CONTEXT
-    const { selectedTodo, projects } = useContext(TodoContext)
-
     useEffect(() => {
-        if(selectedTodo){
-            setText(selectedTodo.text)
-            setDay(moment(selectedTodo.date, 'MM/DD/YYYY'))
-            setTime(moment(selectedTodo.time, 'hh:mm A'))
-            setTodoProject(selectedTodo.projectName)
+        if(todo){
+            setText(todo.text)
+            setDay(moment(todo.date, 'MM/DD/YYYY'))
+            setTime(moment(todo.time, 'hh:mm A'))
+            setTodoProject(todo.projectName)
         }
-    }, [selectedTodo])
+    }, [todo])
 
-    useEffect(() => {
-        if(selectedTodo){
+    useEffect( () => {
+        if(todo){
             firebase
                 .firestore()
                 .collection('todos')
-                .doc(selectedTodo.id)
+                .doc(todo.id)
                 .update({
                     text,
                     date : moment(day).format('MM/DD/YYYY'),
@@ -37,7 +37,6 @@ function EditTodo(){
                     projectName : todoProject
                 })
         }
-
     }, [text, day, time, todoProject])
 
     function handleSubmit(e){
@@ -46,7 +45,7 @@ function EditTodo(){
     return (
         <div>
             {
-                selectedTodo &&
+                todo &&
                 <div className='EditTodo'>
                     <div className="header">
                         Edit Todo

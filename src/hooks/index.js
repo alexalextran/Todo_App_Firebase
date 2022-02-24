@@ -66,7 +66,7 @@ export function useProjects(){
             const data = snapshot.docs.map( doc => {
                 return {
                     id : doc.id,
-                    name : doc.data().name
+                    name : doc.data().name,
                 }
             })
             setProjects(data)
@@ -78,19 +78,19 @@ export function useProjects(){
     return projects
 }
 
-export function useProjectsWithStats(projects, todos){
+export function useProjectsWithStats(todos, projects){
     const [projectsWithStats, setProjectsWithStats] = useState([])
 
-    useEffect(() => {
-        const data = projects.map((project) => {
+    useEffect( () => {
+        const data = projects.map( project => {
             return {
-                numOfTodos : todos.filter( todo => todo.projectName === project.name && !todo.checked).length,
+                numOfTodos : todos.filter( todo => todo.projectName === project.name && !todo.checked ).length,
                 ...project
             }
         })
-
+        
         setProjectsWithStats(data)
-    }, [projects, todos])
+    }, [todos, projects])
 
     return projectsWithStats
 }

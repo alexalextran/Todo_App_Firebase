@@ -2,21 +2,23 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { TodoContext } from '../context'
 
 function Sidebar({ children }){
-    // CONTEXT
-    const { setSelectedTodo } = useContext(TodoContext)
-
     // REF
     const sidebarRef = useRef()
 
+    // CONTEXT
+    const { setSelectedTodo } = useContext(TodoContext)
+
+    // DOCUMENT CLICK LISTENER
     useEffect(() => {
         document.addEventListener('click', handleClick)
-
+        
         return () => document.removeEventListener('click', handleClick)
-    })
-
+    }, [])
+    
+    // HANDLE CLICK
     const handleClick = e => {
-        if(e.target === sidebarRef.current || sidebarRef.current.contains(e.target)){
-            setSelectedTodo(undefined)
+        if( e.target === sidebarRef.current || sidebarRef.current.contains(e.target)){
+            setSelectedTodo(false)
         }
     }
 
