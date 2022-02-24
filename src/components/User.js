@@ -1,20 +1,20 @@
-import React from 'react'
+import React,{ useContext }from 'react'
 import logo from "../images/logoalextran.png"
 import { getAuth, signOut } from "firebase/auth"
-
-
-
-
-
-  
+import { TodoContext } from '../context'
 
 function User(){
+
+  const { UID, setUID  } = useContext(TodoContext)
+
 
 
     const Logout = () =>{
         console.log("signingout")
         const auth = getAuth();
         signOut(auth)
+        setUID(undefined)
+        localStorage.removeItem('UserId');
     }
 
     return (

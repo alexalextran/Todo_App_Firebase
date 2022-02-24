@@ -5,7 +5,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import firebase, { auth } from './firebase'
 import { TodoContext } from './context'
 import "firebase/auth";
-import User from './components/User';
+
 
 
 
@@ -17,13 +17,22 @@ const App =  () => {
 
   const { UID, setUID  } = useContext(TodoContext)
 
+  if(localStorage.getItem('UserId') != undefined || null){
+    setUID(localStorage.getItem('UserId'))
+  }
+  else{
+    console.log("no user")
+  }
+
   const LogIn = () => {
    
  (auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()))
  .then((response) => {
-  setUID(response.user.uid)
+  setUID((response.user.uid),(localStorage.setItem('UserId', response.user.uid)))
 }) 
 }
+
+console.log(UID)
  const [user] = useAuthState(auth)
 
   return (
