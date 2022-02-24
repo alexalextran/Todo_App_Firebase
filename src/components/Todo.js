@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { ArrowClockwise, CheckCircleFill, Circle, Trash } from 'react-bootstrap-icons'
-import firebase from '../firebase'
 
 function Todo({todo}){
     const [hover, setHover] = useState(false)
