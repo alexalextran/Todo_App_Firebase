@@ -1,9 +1,11 @@
 import './App.css';
 import Mainpage from './components/MainPage';
 import { useAuthState } from "react-firebase-hooks/auth"
-import React, {useContext, useState} from 'react'
+import React, { useState, useEffect, useContext, createContext } from "react";
 import firebase, { auth } from './firebase'
 import { TodoContext } from './context'
+import "firebase/auth";
+
 
 
 
@@ -17,11 +19,9 @@ const App =  () => {
   const LogIn = () => {
    
  (auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()))
- .then(  )
-
-    
-   
-  
+ .then((response) => {
+  setUID(response.user.uid)
+}) 
 }
  const [user] = useAuthState(auth)
  
@@ -40,5 +40,7 @@ const App =  () => {
     </div>
   );
 }
+
+
 
 export default App;
