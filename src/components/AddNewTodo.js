@@ -28,7 +28,7 @@ function AddNewTodo(){
                 .add(
                     {
                         text : text,
-                        date : moment(day).format('DD/MM/YYYY'),
+                        date : moment(day).format('MM/DD/YYYY'),
                         day : moment(day).format('d'),
                         time : moment(time).format('hh:mm A'),
                         checked : false,
