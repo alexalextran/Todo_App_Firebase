@@ -10,12 +10,12 @@ function Todo({todo}){
     const [hover, setHover] = useState(false)
 
     // CONTEXT
-    const { selectedTodo, setSelectedTodo } = useContext(TodoContext)
+    const { selectedTodo, setSelectedTodo, UID } = useContext(TodoContext)
 
     const deleteTodo = todo => {
         firebase
             .firestore()
-            .collection('todos')
+            .collection(`users/${UID}/todos`)
             .doc(todo.id)
             .delete()
     }
@@ -23,7 +23,7 @@ function Todo({todo}){
     const checkTodo = todo => {
         firebase
             .firestore()
-            .collection('todos')
+            .collection(`users/${UID}/todos`)
             .doc(todo.id)
             .update({
                 checked : !todo.checked
@@ -44,7 +44,7 @@ function Todo({todo}){
         
         firebase
             .firestore()
-            .collection('todos')
+            .collection(`users/${UID}/todos`)
             .add(repeatedTodo)
     }
 

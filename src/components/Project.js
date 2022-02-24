@@ -8,7 +8,7 @@ import { useTransition, useSpring, animated } from 'react-spring'
 
 function Project({project, edit}){
     // CONTEXT
-    const { defaultProject, selectedProject, setSelectedProject } = useContext(TodoContext)
+    const { defaultProject, selectedProject, setSelectedProject, UID } = useContext(TodoContext)
 
     // STATE
     const [showModal, setShowModal] = useState(false)
@@ -22,7 +22,7 @@ function Project({project, edit}){
             .then( () => {
                 firebase
                     .firestore()
-                    .collection('todos')
+                    .collection(`users/${UID}/todos`)
                     .where('projectName', '==', project.name)
                     .get()
                     .then( (querySnapshot) => {
