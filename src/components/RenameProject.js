@@ -21,9 +21,7 @@ function RenameProject({project, setShowModal}){
             .where('name', '==', newProjectName)
             .get()
             .then( querySnapshot => {
-                if(!querySnapshot.empty){
-                    alert('Project with the same name already exists!')
-                }else{
+                {
                     projectsRef
                         .doc(project.id)
                         .update({

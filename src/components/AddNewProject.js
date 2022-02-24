@@ -18,30 +18,26 @@ function AddNewProject(){
             const projectsRef = firebase.firestore().collection(`projects`)
 
             projectsRef
-                .where('name', '==', projectName)
-                .get()
-                .then( querySnapshot => {
-                    if(querySnapshot.empty){
-                        projectsRef
+               
                             .add(
                                 {
                                     name : projectName,
                                     UserId: UID
                                 }
                             )
-                    }
-                })
-                
-            setShowModal(false)
+                    } 
+                    setShowModal(false)
             setProjectName('') 
          
+                }
+                
+           
             
     
 
      
       
-        }
-    }
+   
 
     
 
