@@ -51,8 +51,8 @@
 
 .User .logo img {
   width: 50px;
-  transform: scale(2);
-  
+  -webkit-transform: scale(2);
+          transform: scale(2);
 }
 
 .User .info p {
@@ -129,6 +129,7 @@
 
 .TodoForm .text input {
   padding: 1rem;
+  width: 100%;
   margin-bottom: 0.5rem;
   border: none;
   font-size: 1.2rem;
@@ -723,12 +724,6 @@
   z-index: 99;
   background-color: #000;
   color: white;
-  text-align: center;
-}
-
-.text{
-  margin-top: 40px;
-  width: 500px;
 }
 
 @media (max-width: 900px) {

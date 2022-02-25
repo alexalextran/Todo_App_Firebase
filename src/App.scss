@@ -43,8 +43,7 @@
 
 .User .logo img {
   width: 50px;
-  border-radius: 50%;
-  border: 1px solid #000;
+  transform: scale(2);
 }
 
 .User .info p {
@@ -107,7 +106,7 @@
 }
 .TodoForm .text input {
   padding: 1rem;
-  width: 100%;
+width: 100%;
   margin-bottom: 0.5rem;
   border: none;
   font-size: 1.2rem;
