@@ -56,7 +56,7 @@ const App =  () => {
   </div>
   <p className="btn-text"><>Sign in with google</></p>
 </div>
-<p className="text">Since this is my first firebase project, google authentication is used just for simplicity!
+<p className="hometext">Since this is my first firebase project, google authentication is used just for simplicity!
 P.s Try not to close the authentication window, it breaks the code (will fix later).</p>
   <img src={waves}></img>
 </section></>
