@@ -545,6 +545,12 @@ background-color: #000;
 color: white;
 }
 
+.text{
+  margin-top: 40px;
+  text-align: center;
+  width: 500px;
+}
+
 
 @media (max-width: 900px) {
   .small{display: flex;}

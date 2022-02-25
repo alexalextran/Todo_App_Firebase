@@ -31,11 +31,11 @@ function Todo({todo}){
     }
 
     const repeatNextDay = todo => {  
-        const nextDayDate = moment(todo.date, 'MM/DD/YYYY').add(1, 'days')
+        const nextDayDate = moment(todo.date, 'DD/MM/YYYY').add(1, 'days')
 
         const repeatedTodo = {
             ...todo,
-            date : nextDayDate.format('MM/DD/YYYY'),
+            date : nextDayDate.format('DD/MM/YYYY'),
             day : nextDayDate.format('d'),
             checked : false
         }
@@ -96,7 +96,7 @@ function Todo({todo}){
                     onClick={ () => setSelectedTodo(todo)}
                 >
                     <p style={{color : todo.checked ? '#bebebe' : '#000000'}}>{todo.text}</p>
-                    <span>{todo.time} - {todo.projectName}</span>
+                    <span>{todo.time} - {todo.projectName} - {todo.date}</span>
                     <div className={`line ${todo.checked ? 'line-through' : ''}`}></div>
                 </div>
                 <div
