@@ -1,10 +1,11 @@
 import './App.css';
 import Mainpage from './components/MainPage';
 import { useAuthState } from "react-firebase-hooks/auth"
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useContext } from "react";
 import firebase, { auth } from './firebase'
 import { TodoContext } from './context'
 import "firebase/auth";
+import waves from "./images/wave.svg"
 
 
 
@@ -43,8 +44,15 @@ console.log(UID)
       ?
      <Mainpage />
      : 
-  <section>
-  <button onClick={LogIn}>Sign In</button>
+  <section id="LoginPage">
+  <h1>Alex Tran's TOOD's</h1>
+  <div onClick={LogIn} class="google-btn">
+  <div class="google-icon-wrapper">
+    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  </div>
+  <p class="btn-text"><>Sign in with google</></p>
+</div>
+  <img src={waves}></img>
 </section>
 }
     </div>
