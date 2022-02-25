@@ -26,6 +26,10 @@ function User(){
                 <p>Alex Tran's TODO</p>
                 <a onClick={Logout} href="#">Logout!</a>
             </div>
+            <div className='small'>
+                <h1> Sorry this application is not supported on samller screens!</h1>
+            </div>
+
         </div>
     )
 }

@@ -29,6 +29,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  overflow-y: scroll;
 }
 
 /* User */
@@ -359,7 +360,8 @@
 
 /* Todos */
 .Todos {
-  width: 450px;
+  width: clamp(300px, 25vw, 500px);
+
   height: 80%;
   background-color: white;
 
@@ -431,12 +433,12 @@
 .EditTodo {
   position: absolute;
   bottom: 40px;
-  left: calc(40px + 450px + 40px);
+  left: calc(90px + 25vw + 60px);
 
   background-color: white;
 
   height: 80%;
-  width: 450px;
+  width: clamp(300px, 25vw, 500px);
 
   border-radius: 4px;
   opacity: 0.9;
@@ -496,6 +498,7 @@
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   margin-top: 2vh;
+  cursor: pointer;
 }
 .google-btn .google-icon-wrapper {
   position: absolute;
@@ -526,4 +529,23 @@
 }
 .google-btn:active {
   background: #1669f2;
+}
+
+.small{
+position: absolute;
+justify-content: center;
+display: none;
+align-items: center;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 99;
+background-color: #000;
+color: white;
+}
+
+
+@media (max-width: 900px) {
+  .small{display: flex;}
 }
