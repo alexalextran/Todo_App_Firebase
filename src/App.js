@@ -56,6 +56,7 @@ const App =  () => {
   </div>
   <p className="btn-text"><>Sign in with google</></p>
 </div>
+<p className="text">Since this is my first firebase project, google authentication is used just for simplicity!</p>
   <img src={waves}></img>
 </section></>
 }

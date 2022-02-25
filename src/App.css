@@ -727,6 +727,10 @@
   text-align: center;
 }
 
+.text{
+  margin-top: 40px;
+}
+
 @media (max-width: 900px) {
   .small {
     display: -webkit-box;
