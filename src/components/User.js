@@ -1,5 +1,5 @@
 import React,{ useContext }from 'react'
-import logo from "../images/logoalextran.png"
+import frog from "../images/frog.png"
 import { getAuth, signOut } from "firebase/auth"
 import { TodoContext } from '../context'
 
@@ -19,7 +19,7 @@ function User(){
     return (
         <div className='User'>
             <div className="logo">
-                <img src={logo} alt="logo" />
+                <img src={frog} alt="logo" />
             </div>
             <div className='info'>
                 <p>Alex Tran's TODO</p>
