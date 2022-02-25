@@ -33,7 +33,7 @@ const App =  () => {
 }) 
 }
 
-console.log(UID)
+
  const [user] = useAuthState(auth)
 
   return (
@@ -44,16 +44,20 @@ console.log(UID)
       ?
      <Mainpage />
      : 
+     <>
+     <div className='small'>
+                <h1> Sorry this application is not supported on smaller screens!</h1>
+            </div>
   <section id="LoginPage">
   <h1>Alex Tran's TOOD's</h1>
-  <div onClick={LogIn} class="google-btn">
-  <div class="google-icon-wrapper">
-    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  <div onClick={LogIn} className="google-btn">
+  <div className="google-icon-wrapper">
+    <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
   </div>
-  <p class="btn-text"><>Sign in with google</></p>
+  <p className="btn-text"><>Sign in with google</></p>
 </div>
   <img src={waves}></img>
-</section>
+</section></>
 }
     </div>
   );

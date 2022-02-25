@@ -643,6 +643,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #f0f0f0;
 }
 
 #LoginPage > img {
@@ -723,6 +724,7 @@
   z-index: 99;
   background-color: #000;
   color: white;
+  text-align: center;
 }
 
 @media (max-width: 900px) {

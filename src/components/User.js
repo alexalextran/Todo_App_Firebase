@@ -10,7 +10,6 @@ function User(){
 
 
     const Logout = () =>{
-        console.log("signingout")
         const auth = getAuth();
         signOut(auth)
         setUID(undefined)
@@ -27,7 +26,7 @@ function User(){
                 <a onClick={Logout} href="#">Logout!</a>
             </div>
             <div className='small'>
-                <h1> Sorry this application is not supported on samller screens!</h1>
+                <h1> Sorry this application is not supported on smaller screens!</h1>
             </div>
 
         </div>

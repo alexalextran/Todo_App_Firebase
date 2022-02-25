@@ -58,7 +58,7 @@ export function useFilterTodos(todos, selectedProject, UID){
             data = todos.filter(todo => todo.projectName === selectedProject)
         }
 
-        console.log(UID)
+      
 
         setFilteredTodos(data)
     }, [todos, selectedProject])
