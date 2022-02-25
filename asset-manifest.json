@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/todo_app/static/css/main.f041fbe5.chunk.css",
-    "main.js": "/todo_app/static/js/main.7867a75e.chunk.js",
-    "main.js.map": "/todo_app/static/js/main.7867a75e.chunk.js.map",
-    "runtime-main.js": "/todo_app/static/js/runtime-main.f3b32266.js",
-    "runtime-main.js.map": "/todo_app/static/js/runtime-main.f3b32266.js.map",
-    "static/js/2.2ea85a22.chunk.js": "/todo_app/static/js/2.2ea85a22.chunk.js",
-    "static/js/2.2ea85a22.chunk.js.map": "/todo_app/static/js/2.2ea85a22.chunk.js.map",
-    "static/js/3.d8f265dd.chunk.js": "/todo_app/static/js/3.d8f265dd.chunk.js",
-    "static/js/3.d8f265dd.chunk.js.map": "/todo_app/static/js/3.d8f265dd.chunk.js.map",
+    "main.css": "/todo_app/static/css/main.20699bbe.chunk.css",
+    "main.js": "/todo_app/static/js/main.21ff470b.chunk.js",
+    "main.js.map": "/todo_app/static/js/main.21ff470b.chunk.js.map",
+    "runtime-main.js": "/todo_app/static/js/runtime-main.7afab6f0.js",
+    "runtime-main.js.map": "/todo_app/static/js/runtime-main.7afab6f0.js.map",
+    "static/js/2.63c2b64e.chunk.js": "/todo_app/static/js/2.63c2b64e.chunk.js",
+    "static/js/2.63c2b64e.chunk.js.map": "/todo_app/static/js/2.63c2b64e.chunk.js.map",
+    "static/js/3.c7bf7b8b.chunk.js": "/todo_app/static/js/3.c7bf7b8b.chunk.js",
+    "static/js/3.c7bf7b8b.chunk.js.map": "/todo_app/static/js/3.c7bf7b8b.chunk.js.map",
     "index.html": "/todo_app/index.html",
-    "static/css/main.f041fbe5.chunk.css.map": "/todo_app/static/css/main.f041fbe5.chunk.css.map",
-    "static/js/2.2ea85a22.chunk.js.LICENSE.txt": "/todo_app/static/js/2.2ea85a22.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/todo_app/static/media/bg.80dd5058.jpg"
+    "static/css/main.20699bbe.chunk.css.map": "/todo_app/static/css/main.20699bbe.chunk.css.map",
+    "static/js/2.63c2b64e.chunk.js.LICENSE.txt": "/todo_app/static/js/2.63c2b64e.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/todo_app/static/media/bg.80dd5058.jpg",
+    "static/media/wave.3eb81e26.svg": "/todo_app/static/media/wave.3eb81e26.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f3b32266.js",
-    "static/js/2.2ea85a22.chunk.js",
-    "static/css/main.f041fbe5.chunk.css",
-    "static/js/main.7867a75e.chunk.js"
+    "static/js/runtime-main.7afab6f0.js",
+    "static/js/2.63c2b64e.chunk.js",
+    "static/css/main.20699bbe.chunk.css",
+    "static/js/main.21ff470b.chunk.js"
   ]
 }
